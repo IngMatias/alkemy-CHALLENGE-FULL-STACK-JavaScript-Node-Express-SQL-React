@@ -1,10 +1,16 @@
 import React, { Component } from 'react'
 import { render } from 'react-dom'
 
+import LogIn from './sessionComponents/login'
+import Register from './sessionComponents/register'
+
 class App extends Component {
     render() {
         return (
-            <h1>Hola Alkemy</h1>
+            <div>
+                <LogIn></LogIn>
+                <Register></Register>
+            </div>
         )
     }
 }
