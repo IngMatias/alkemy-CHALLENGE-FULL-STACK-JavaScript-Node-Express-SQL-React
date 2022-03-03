@@ -103,7 +103,11 @@ module.exports = {
     },
     getMovements: (data, callback) => {
 
-        const templateQuery =   `SELECT * FROM Movements WHERE UserId=?`
+        const templateQuery =   `SELECT MovementId, Value, Type, Category, Description, Date, categories.CategoryId
+                                FROM movements
+                                INNER JOIN categories
+                                ON movements.CategoryId = categories.CategoryId
+                                WHERE movements.UserId=?`
         const query = mysql.format(templateQuery, [data.userId])
 
         getQuery(query, callback)
