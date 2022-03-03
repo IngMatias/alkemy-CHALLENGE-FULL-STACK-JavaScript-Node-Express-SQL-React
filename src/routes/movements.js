@@ -2,8 +2,9 @@ const express = require('express')
 const router = express.Router()
 
 const db = require('../database/operations')
+const ensureAuthenticated = require('../auth/ensureAuthenticated')
 
-router.post('/movement', (req, res) => {
+router.post('/movement', ensureAuthenticated, (req, res) => {
     const data = {
         userId: req.user.userId,
         value: req.body.value,
@@ -17,7 +18,7 @@ router.post('/movement', (req, res) => {
     })
 })
 
-router.delete('/movement', (req, res) => {
+router.delete('/movement', ensureAuthenticated, (req, res) => {
     const data = {
         movementId: req.body.movementId,
     }
@@ -26,7 +27,7 @@ router.delete('/movement', (req, res) => {
     })
 })
 
-router.get('/movements', (req, res) => {
+router.get('/movements', ensureAuthenticated, (req, res) => {
     const data = {
         userId: req.user.userId,
     }
@@ -35,7 +36,7 @@ router.get('/movements', (req, res) => {
     })
 })
 
-router.post('/category', (req, res) => {
+router.post('/category', ensureAuthenticated, (req, res) => {
     const data = {
         userId: req.user.userId,
         category: req.body.category,
@@ -45,7 +46,7 @@ router.post('/category', (req, res) => {
     })
 })
 
-router.delete('/category', (req, res) => {
+router.delete('/category', ensureAuthenticated, (req, res) => {
     const data = {
         categoryId: req.body.categoryId,
     }
@@ -53,7 +54,7 @@ router.delete('/category', (req, res) => {
         res.sendStatus(200)
     })
 })
-router.get('/categories', (req, res) => {
+router.get('/categories', ensureAuthenticated, (req, res) => {
     const data = {
         userId: req.user.userId,
     }
