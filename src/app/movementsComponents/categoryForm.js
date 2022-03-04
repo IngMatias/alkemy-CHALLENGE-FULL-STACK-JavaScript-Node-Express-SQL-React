@@ -28,13 +28,11 @@ class CategoryForm extends Component {
     }
     render() {
         return (<div>
-            <form onSubmit={this.submitNewCategory}>
-                <div>
-                    <label>
-                        New category: 
-                    </label>
-                    <input onChange={this.changeNewCategory} value={this.state.newCategory} required></input>
-                </div>
+            <form onSubmit={this.submitNewCategory} className='category-form'>
+                <label>
+                    New category: 
+                </label>
+                <input onChange={this.changeNewCategory} value={this.state.newCategory} required></input>
                 <button>Add Category</button>
             </form>
         </div>)

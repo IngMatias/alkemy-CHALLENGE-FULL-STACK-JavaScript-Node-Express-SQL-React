@@ -1,0 +1,109 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:300);
+
+body {
+    margin: 0px;
+    padding: 0px;
+    background-color: #76b852;
+    height: fit-content;
+    min-height: 100vh;
+    font-family: "Roboto", sans-serif;
+    display: grid;
+    justify-content: center;
+    align-content: center;
+}
+
+
+/* INDEX */
+#index-container{
+    width: 360px;
+}
+#index-container, #home-container{
+    background-color: white;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+
+    margin: 0px 0px 0px 0px;
+    padding: 60px 30px 30px 30px;
+}
+#login-container form, #register-container form{
+    display: grid;
+    grid-template-columns: auto;
+}
+#index-container input, #index-container button{
+    margin: 8px;
+    padding: 10px;
+}
+#underLogInMessage, #underRegisterMessage{
+    font-size: 10px;
+    color: #b3b3b3;
+    
+    margin: 10px;
+}
+
+
+/* HOME */
+.category-form{
+    text-align: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    margin: 10px;
+}
+.category-form label{
+    grid-column: 2 / 3;
+    margin: 0px 10px 0px 10px;
+}
+
+
+.category-container{
+    text-align: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    margin: 10px;
+}
+.category-container li{
+    grid-column: 2 / 3;
+}
+
+
+.movement-form{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    margin: 10px;
+}
+.movement-form label{
+    grid-column: 2 / 3;
+    margin: 0px 10px 0px 10px;
+}
+#home-container select, #home-container input{
+    font-family: 'Roboto', sans-serif;
+}
+.movement-form button {
+    grid-column: 2 / 4;
+}
+
+
+.movement-container{
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    margin: 10px;
+}
+.movement-container label{
+    grid-column: 1 / 5;
+    text-align: center;
+}
+.movement-container button{
+    grid-column: 2 / 4;
+}
+
+
+/* SHARED */
+#index-container button, #home-container button{
+    background-color: #4CAF50;
+    border-style: none;
+    color: white;
+    text-transform: uppercase;
+}
+
+#index-container input, #home-container input, #home-container select{
+    background-color: #f2f2f2;
+    border-style: none;
+}

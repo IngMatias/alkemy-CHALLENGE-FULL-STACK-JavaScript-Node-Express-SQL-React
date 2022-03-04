@@ -102,7 +102,7 @@ class Home extends Component {
         }
     }
     render() {
-        return(<div>
+        return(<div id='home-container'>
             <CategoryForm addCategory={this.addCategory}/>
             <CategoriesContainer categories={this.state.categories} deleteCategory={this.deleteCategory}/>
             <MovementForm categories={this.state.categories} addMovement={this.addMovement}/>
