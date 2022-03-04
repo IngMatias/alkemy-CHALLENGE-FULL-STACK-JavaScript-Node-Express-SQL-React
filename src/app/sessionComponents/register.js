@@ -52,23 +52,28 @@ class Register extends Component {
         }))
     }
     render() {
-        return (
+        return (<div>
             <form onSubmit={this.handleSubmit}>
-                <label htmlFor='email'>
-                    Email:
-                </label>
-                <input onChange={this.handleEmailChange} type='email' name='email' required></input>
 
-                <label htmlFor='password'>
-                    Password:
-                </label>
-                <input onChange={this.handlePasswordChange} type='password' name='password' required></input>
+                <div>
+                    <label htmlFor='email'>
+                        Email:
+                    </label>
+                    <input onChange={this.handleEmailChange} type='email' name='email' required></input>
+                </div>
+
+                <div>
+                    <label htmlFor='password'>
+                        Password:
+                    </label>
+                    <input onChange={this.handlePasswordChange} type='password' name='password' required></input>
+                </div>
 
                 <button>Register!</button>
 
                 <div id="underRegisterMessage"></div>
             </form>
-        )
+        </div>)
     }
 }
 
