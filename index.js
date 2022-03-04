@@ -36,7 +36,7 @@ require('./src/routes/users')(passport, app)
 const movementAPI = require('./src/routes/movements')
 app.use('/movementsAPI', movementAPI)
 
-app.get('/', (req, res) => {
+app.get('*', (req, res) => {
     res.sendFile(__dirname + '/public/index.html')
 })
 

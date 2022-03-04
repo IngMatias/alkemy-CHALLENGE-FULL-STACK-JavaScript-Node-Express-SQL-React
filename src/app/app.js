@@ -1,21 +1,25 @@
-import React, { Component } from 'react'
+import React, { StrictMode } from 'react'
 import { render } from 'react-dom'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
-import LogIn from './sessionComponents/login'
-import Register from './sessionComponents/register'
+import Index from './index'
+import Home from './home'
 
-class App extends Component {
-    render() {
-        return (
-            <div>
-                <LogIn></LogIn>
-                <Register></Register>
-            </div>
-        )
-    }
+function App() {
+    return (
+        <BrowserRouter>
+            <Routes>
+                <Route path='/' element={<Index />}/>
+                <Route path='/home' element={<Home />}/>
+
+            </Routes>
+        </BrowserRouter>
+    )
 }
 
 render(
-    <App/>,
+    <StrictMode>
+        <App />
+    </StrictMode>,
     document.getElementById('app')
 )
