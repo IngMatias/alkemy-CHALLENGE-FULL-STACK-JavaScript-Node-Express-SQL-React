@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { render } from 'react-dom'
+import { useNavigate } from 'react-router-dom'
 
 class LogIn extends Component {
     constructor(props) {
@@ -25,13 +26,17 @@ class LogIn extends Component {
             }
         })
         .then(res => {
-            if (res.status == 401) {
+            if (res.status == 401 || res.status == 404) {
                 render(
                     <span>Try again</span>,
-                    document.getElementById('wrongLogInMessage')
+                    document.getElementById('underLogInMessage')
                 )
-            }   
-        })
+            }
+            if (res.status == 200) {
+                window.location.href = '/home'
+            }
+
+        }) 
     }
     handleEmailChange(e) {
         this.setState((state) => ({
@@ -60,7 +65,7 @@ class LogIn extends Component {
 
                 <button>Log In!</button>
 
-                <div id="wrongLogInMessage"></div>
+                <div id="underLogInMessage"></div>
             </form>
         )
     }
