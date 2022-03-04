@@ -6,12 +6,10 @@ import Register from './sessionComponents/register'
 
 class Index extends Component {
     render() {
-        return (
-            <div>
-                <LogIn></LogIn>
-                <Register></Register>
-            </div>
-        )
+        return (<div id='index-container'>
+            <LogIn></LogIn>
+            <Register></Register>
+        </div>)
     }
 }
 

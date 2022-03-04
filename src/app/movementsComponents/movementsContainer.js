@@ -8,26 +8,15 @@ class MovementsContainer extends Component {
     render() {
         return (<div>
             {this.props.movements.map((movement, index) => {
-                return (<div key={index}>
-                    <div>
-                        <label>Value: </label>
-                        {movement.Value}
-                    </div>
-                        <label>Type: </label>
-                        {movement.Type} 
-                    <div>
-                        <label>Category: </label>
-                        {movement.Category}
-                    </div>  
-                        <label>Description: </label>
-                        {movement.Description}
-                    <div>
-                        <label>Date: </label>
-                        {movement.Date}
-                    </div>
+                return (<li key={index} className='movement-container'>
+                    <label>Value: {movement.Value}</label>
+                    <label>Type: {movement.Type}</label>
+                    <label>Category: {movement.Category}</label>
+                    <label>Description: {movement.Description}</label>
+                    <label>Date: {movement.Date}</label>
                     
                     <button onClick={(e) => this.props.deleteMovement(e, movement.MovementId)}>Delete movement</button>
-                </div>)
+                </li>)
             })}
         </div>)
     }

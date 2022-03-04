@@ -51,24 +51,12 @@ class LogIn extends Component {
         }))
     }
     render() {
-        return (<div>
+        return (<div id='login-container'>
             <form onSubmit={this.handleSubmit}>
+                <input onChange={this.handleEmailChange} type='email' name='email' placeholder='email' required></input>
+                <input onChange={this.handlePasswordChange} type='password' name='password' placeholder='password' required></input>
 
-                <div>
-                    <label htmlFor='email'>
-                        Email:
-                    </label>
-                    <input onChange={this.handleEmailChange} type='email' name='email' required></input>
-                </div>
-
-                <div>
-                    <label htmlFor='password'>
-                        Password:
-                    </label>
-                    <input onChange={this.handlePasswordChange} type='password' name='password' required></input>
-                </div>
-
-                <button>Log In!</button>
+                <button>Log In</button>
 
                 <div id="underLogInMessage"></div>
             </form>

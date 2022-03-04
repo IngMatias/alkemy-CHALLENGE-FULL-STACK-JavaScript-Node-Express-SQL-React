@@ -17,43 +17,32 @@ class MovementForm extends Component {
     }
     render() {
         return (<div>
-            <form onSubmit={this.submitHandler}>
+            <form onSubmit={this.submitHandler} className='movement-form'>
+                <label>Value:</label>
+                <input type='number' name='value' required></input>
 
-                <div>
-                    <label>Value</label>
-                    <input type='number' name='value' required></input>
-                </div>
+                <label>Type:</label>
+                <select name='type'>
+                    <option>input</option>
+                    <option>output</option>
+                </select>
 
-                <div>
-                    <label>Type</label>
-                    <select name='type'>
-                        <option>input</option>
-                        <option>output</option>
-                    </select>
-                </div>
+                <label>Category:</label>
+                <select name='categoryId' required>
+                    {this.props.categories.map((category, index) => {
+                        return (
+                            <option key={index} value={category.CategoryId}>{category.Category}</option>
+                        )
+                    })}
+                </select>
 
-                <div>
-                    <label>Category</label>
-                    <select name='categoryId' required>
-                        {this.props.categories.map((category, index) => {
-                            return (
-                                <option key={index} value={category.CategoryId}>{category.Category}</option>
-                            )
-                        })}
-                    </select>
-                </div>
+                <label>Description:</label>
+                <input type='text' name='description' required></input>
 
-                <div>
-                    <label>Description</label>
-                    <input type='text' name='description' required></input>
-                </div>
+                <label>Date:</label>
+                <input type='date' name='date' required></input>
 
-                <div>
-                    <label>Date</label>
-                    <input type='date' name='date' required></input>
-                </div>
-
-                <button>New movement</button>
+                <button>Add movement</button>
             </form>
         </div>)
     }
