@@ -79,7 +79,16 @@ body {
 .movement-form button {
     grid-column: 2 / 4;
 }
-
+.total-container{
+    color: white;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    text-align: center;
+}
+.total-container label{
+    background-color: #4CAF50;
+    grid-column: 5 / 6;
+}
 
 .movement-container{
     display: grid;

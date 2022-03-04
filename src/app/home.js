@@ -4,17 +4,17 @@ import CategoryForm from './movementsComponents/categoryForm'
 import CategoriesContainer from './movementsComponents/categoriesContainer'
 import MovementForm from './movementsComponents/movementForm'
 import MovementsContainer from './movementsComponents/movementsContainer'
+import Total from './movementsComponents/total'
 
 class Home extends Component {
     constructor(props) {
         super(props)
 
         this.state = {
+            total: 0,
             movements: [],
             categories: []
         }
-
-        // this.getCategories = this.getCategories.bind(this)
         this.deleteCategory = this.deleteCategory.bind(this)
         this.deleteMovement = this.deleteMovement.bind(this)
     }
@@ -93,19 +93,12 @@ class Home extends Component {
             return newState
         })
     }
-    signedValue(type, value) {
-        if (type == 'input') {
-            return Math.abs(value)
-        }
-        if (type == 'output') {
-            return -1 * Math.abs(value)
-        }
-    }
     render() {
         return(<div id='home-container'>
             <CategoryForm addCategory={this.addCategory}/>
             <CategoriesContainer categories={this.state.categories} deleteCategory={this.deleteCategory}/>
             <MovementForm categories={this.state.categories} addMovement={this.addMovement}/>
+            <Total movements={this.state.movements}></Total>
             <MovementsContainer movements={this.state.movements} deleteMovement={this.deleteMovement}/>
         </div>)
     }
