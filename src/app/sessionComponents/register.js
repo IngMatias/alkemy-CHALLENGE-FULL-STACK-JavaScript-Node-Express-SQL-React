@@ -28,9 +28,15 @@ class Register extends Component {
             if (res.status == 304) {
                 render(
                     <span>Already register</span>,
-                    document.getElementById('wrongRegisterMessage')
+                    document.getElementById('underRegisterMessage')
                 )
-            }   
+            }
+            if (res.status == 201) {
+                render(
+                    <span>Registered successfully</span>,
+                    document.getElementById('underRegisterMessage')
+                )
+            }
         })
     }
     handleEmailChange(e) {
@@ -60,7 +66,7 @@ class Register extends Component {
 
                 <button>Register!</button>
 
-                <div id="wrongRegisterMessage"></div>
+                <div id="underRegisterMessage"></div>
             </form>
         )
     }
