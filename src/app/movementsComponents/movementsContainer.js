@@ -5,18 +5,44 @@ class MovementsContainer extends Component {
         super(props)
 
         this.state = {
+            orderByButton: 'Order By Category',
             allMovementsButton: 'Show all',
+            byCategory: false,
             allMovements: false
         }
-        this.firstTen = this.firstTen.bind(this)
+        this.movements = this.movements.bind(this)
         this.changeShow = this.changeShow.bind(this)
+        this.orderByCategory = this.orderByCategory.bind(this)
     }
-    firstTen() {
+    movements() {
+        let movements = []
         if (! this.state.allMovements) {
-            return this.props.movements.slice(0, Math.min(this.props.movements.length, 10))
+            movements = this.props.movements.slice(0, Math.min(this.props.movements.length, 10))
         } else {
-            return this.props.movements
+            movements = this.props.movements
         }
+        if (this.state.byCategory) {
+            movements.sort((movement1, movement2) => {
+                if(movement1.Category > movement2.Category) {
+                    return 1
+                }
+                if(movement1.Category < movement2.Category) {
+                    return -1
+                }
+                return 0
+            })
+        } else {
+            movements.sort((movement1, movement2) => {
+                if (movement1.MovementId > movement2.MovementId) {
+                    return -1
+                }
+                if (movement1.MovementId < movement2.MovementId) {
+                    return 1
+                }
+                return 0
+            })
+        }
+        return movements
     }
     changeShow() {
         this.setState((state) => {
@@ -26,10 +52,19 @@ class MovementsContainer extends Component {
             return newState
         }) 
     }
+    orderByCategory() {
+        this.setState((state) => {
+            const newState = JSON.parse(JSON.stringify(state))
+            newState.byCategory = ! newState.byCategory
+            newState.orderByButton = newState.orderByButton == 'Order By Category' ? 'Order by inserted' : 'Order By Category'
+            return newState
+        })
+    }
     render() {
         return (<div>
             <button onClick={this.changeShow}>{this.state.allMovementsButton}</button>
-            {this.firstTen().map((movement, index) => {
+            <button onClick={this.orderByCategory}>{this.state.orderByButton}</button>
+            {this.movements().map((movement, index) => {
                 return (<li key={index} className='movement-container'>
                     <label>Value: {movement.Value}</label>
                     <label>Type: {movement.Type}</label>
