@@ -107,7 +107,8 @@ module.exports = {
                                 FROM movements
                                 INNER JOIN categories
                                 ON movements.CategoryId = categories.CategoryId
-                                WHERE movements.UserId=?`
+                                WHERE movements.UserId=?
+                                ORDER BY MovementId DESC`
         const query = mysql.format(templateQuery, [data.userId])
 
         getQuery(query, callback)

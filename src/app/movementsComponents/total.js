@@ -6,7 +6,6 @@ class Total extends Component {
         
     }
     total(movements) {
-        console.log(movements)
         let total = 0
         movements.map(movement => {
             if (movement.Type == 'input') {
