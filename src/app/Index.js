@@ -7,6 +7,7 @@ import Register from './sessionComponents/register'
 class Index extends Component {
     render() {
         return (<div id='index-container'>
+            <h1>Welcome</h1>
             <LogIn></LogIn>
             <Register></Register>
         </div>)

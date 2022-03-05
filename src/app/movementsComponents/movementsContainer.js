@@ -61,7 +61,7 @@ class MovementsContainer extends Component {
         })
     }
     render() {
-        return (<div>
+        return (<div className='movements-container'>
             <button onClick={this.changeShow}>{this.state.allMovementsButton}</button>
             <button onClick={this.orderByCategory}>{this.state.orderByButton}</button>
             {this.movements().map((movement, index) => {
