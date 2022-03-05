@@ -97,7 +97,7 @@ class Home extends Component {
         return(<div id='home-container'>
             <h1>Have a <span>green</span> day!</h1>
             <CategoryForm addCategory={this.addCategory}/>
-            <CategoriesContainer categories={this.state.categories} deleteCategory={this.deleteCategory}/>
+            <CategoriesContainer movements={this.state.movements} categories={this.state.categories} deleteCategory={this.deleteCategory}/>
             <MovementForm categories={this.state.categories} addMovement={this.addMovement}/>
             <Total movements={this.state.movements}></Total>
             <MovementsContainer movements={this.state.movements} deleteMovement={this.deleteMovement}/>

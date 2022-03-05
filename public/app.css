@@ -61,6 +61,16 @@ body {
     grid-column: 2 / 3;
     margin: 0px 10px 0px 10px;
 }
+@keyframes fadeOut {
+    0% { opacity: 1;}
+    50% { opacity: 0.5;}
+    100% { opacity: 0; visibility: hidden;}
+}
+.disappearingMessage{
+    animation-name: fadeOut;
+    animation-duration: 500ms;
+    animation-fill-mode: forwards;
+}
 
 
 .category-container{
